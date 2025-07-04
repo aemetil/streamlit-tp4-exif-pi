@@ -11,6 +11,8 @@ import streamlit as st
 from PIL import Image
 import piexif
 import io
+import folium
+from streamlit_folium import st_folium
 
 # Titre de l'application
 st.set_page_config(page_title="Éditeur EXIF", layout="centered")
@@ -48,12 +50,20 @@ if fichier:
 
     latitude = st.number_input("Latitude (ex: 48.8566)", format="%.6f", value=48.8566)
     longitude = st.number_input("Longitude (ex: 2.3522)", format="%.6f", value=2.3522)
+    
+    # Creation d'une carte centrée sur le coordonnées GPS
+    st.subheader("Carte de localisation (selon les coordonnées GPS saisies)")
+    carte = folium.Map(location=[latitude, longitude], zoom_start=15)
+    folium.Marker([latitude, longitude], tooltip="Emplacement GPS").add_to(carte)
 
     # Bouton pour modifier & télécharger
     if st.button("Enregistrer les métadonnées EXIF"):
         # Mise à jour des métadonnées texte
         exif_dict["0th"][piexif.ImageIFD.Artist] = nouveau_artiste.encode("utf-8")
         exif_dict["0th"][piexif.ImageIFD.ImageDescription] = nouvelle_desc.encode("utf-8")
+        
+        # Affichage de la carte dans streamlit
+        st_folium(carte, width=700, height=500)
 
         # Ajout des coordonnées GPS
         lat_ref = "N" if latitude >= 0 else "S"

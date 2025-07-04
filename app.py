@@ -5,7 +5,7 @@
 # Version ..... : V0.1 du 26/05/2025
 # Licence ..... : Réalisé dans le cadre du cours Outils Collaboratifs (TP4)
 # Usage ....... : streamlit run app.py
-# *******************************************************
+# **********************************************************
 
 import streamlit as st
 from PIL import Image

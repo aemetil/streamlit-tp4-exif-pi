@@ -16,7 +16,7 @@ from streamlit_folium import st_folium
 
 # Titre de l'application
 st.set_page_config(page_title="Éditeur EXIF", layout="centered")
-st.markdown("### Éditeur de métadonnées EXIF (avec piexif)")
+st.markdown("### Éditeur de métadonnées EXIF")
 
 # Fonction pour convertir des coordonnées décimales en DMS (degrés, minutes, secondes)
 def convertir_en_dms(valeur):
@@ -52,7 +52,6 @@ if fichier:
     longitude = st.number_input("Longitude (ex: 2.3522)", format="%.6f", value=2.3522)
     
     # Creation d'une carte centrée sur le coordonnées GPS
-    st.subheader("Carte de localisation (selon les coordonnées GPS saisies)")
     carte = folium.Map(location=[latitude, longitude], zoom_start=15)
     folium.Marker([latitude, longitude], tooltip="Emplacement GPS").add_to(carte)
 
@@ -84,4 +83,31 @@ if fichier:
         )
     
     # Affichage de la carte dans streamlit
+    st.subheader("Carte de localisation (selon les coordonnées GPS saisies)")
     st_folium(carte, width=700, height=500)
+    
+    st.subheader("Mes lieux visités ou rêvés")
+    
+    # Liste des POI
+    lieux = [
+        ("Paris", 48.8566, 2.3522),
+        ("New York", 40.7128, -74.0060),
+        ("Tokyo", 35.6895, 139.6917),
+        ("Le Caire", 30.0444, 31.2357),
+        ("Rio de Janeiro", -22.9068, -43.1729),
+    ]
+    
+    # Centrer la carte sur le premier lieu
+    carte_poi = folium.Map(Location=[lieux[0][1], lieux[0][1]], zoom_start=2)
+    
+    # Ajout les marqueurs 
+    points_ligne = []
+    for nom, lat, long in lieux:
+        folium.Marker([lat, long], popup=nom, tooltip=nom).add_to(carte_poi)
+        points_ligne.append((lat, long)) # pour dessiner la ligne
+    
+    # Relier les lieux avec une polyligne
+    folium.PolyLine(points_ligne, color="blue", weight=2.5, opacity=0.7)
+    
+    # Afficher la carte avec st_folium
+    st_folium(carte_poi, width=700, height=500)

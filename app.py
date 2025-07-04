@@ -55,15 +55,15 @@ if fichier:
     st.subheader("Carte de localisation (selon les coordonnées GPS saisies)")
     carte = folium.Map(location=[latitude, longitude], zoom_start=15)
     folium.Marker([latitude, longitude], tooltip="Emplacement GPS").add_to(carte)
+    
+    # Affichage de la carte dans streamlit
+    st_folium(carte, width=700, height=500)
 
     # Bouton pour modifier & télécharger
     if st.button("Enregistrer les métadonnées EXIF"):
         # Mise à jour des métadonnées texte
         exif_dict["0th"][piexif.ImageIFD.Artist] = nouveau_artiste.encode("utf-8")
         exif_dict["0th"][piexif.ImageIFD.ImageDescription] = nouvelle_desc.encode("utf-8")
-        
-        # Affichage de la carte dans streamlit
-        st_folium(carte, width=700, height=500)
 
         # Ajout des coordonnées GPS
         lat_ref = "N" if latitude >= 0 else "S"

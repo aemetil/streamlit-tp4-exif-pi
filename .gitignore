@@ -1,0 +1,20 @@
+# Environment virtuel & données sensibles
+venv/
+env/
+.env
+.env.*
+
+# Fichier log/erreurs
+*.log
+
+# Fichiers temporaires
+*.tmp
+
+# Fichiers Systeme MacOS
+.DS_Store
+
+# Captures d'écran, fichiers de sortie
+*.png
+*.jpg
+*.jpeg
+image_modifiee*.jpg

@@ -98,16 +98,16 @@ if fichier:
     ]
     
     # Centrer la carte sur le premier lieu
-    carte_poi = folium.Map(Location=[lieux[0][1], lieux[0][1]], zoom_start=2)
+    carte_poi = folium.Map(Location=[lieux[0][1], lieux[0][2]], zoom_start=2)
     
-    # Ajout les marqueurs 
+    # Ajout des marqueurs 
     points_ligne = []
     for nom, lat, long in lieux:
         folium.Marker([lat, long], popup=nom, tooltip=nom).add_to(carte_poi)
         points_ligne.append((lat, long)) # pour dessiner la ligne
     
     # Relier les lieux avec une polyligne
-    folium.PolyLine(points_ligne, color="blue", weight=2.5, opacity=0.7)
+    folium.PolyLine(points_ligne, color="blue", weight=2.5, opacity=0.7).add_to(carte_poi)
     
     # Afficher la carte avec st_folium
     st_folium(carte_poi, width=700, height=500)

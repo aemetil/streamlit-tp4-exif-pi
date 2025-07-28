@@ -1,6 +1,6 @@
 # TP4 - Streamlit : EXIF + PI
 
-![Apercu de l'accueil de l'application](.github/cover.png)
+![Apercu de l'accueil de l'application](img/cover.png)
 
 Ce projet a été réalisé dans le cadre du TP4 du cours **Outils Collaboratifs**.  
 Il s'agit d'une **application Streamlit multipage** permettant de:
@@ -40,8 +40,8 @@ Il s'agit d'une **application Streamlit multipage** permettant de:
 - **Jour de la semaine correspondant à la date**
 - **Calcul et comparaison**:
   - Somme des 20 premières decimales
-  - Somme des \(12^2\) premières décimales
-    **Integration d'une vidéo pedagogique** sur la somme des entiers naturels \(\sum\_{n=1}^\infty n = -\frac{1}{12}\)
+  - Somme des $12^2$ premières décimales
+    **Integration d'une vidéo pedagogique** sur la somme des entiers naturels : $\sum_{n=1}^\infty n = -\frac{1}{12}$.
 
 ---
 

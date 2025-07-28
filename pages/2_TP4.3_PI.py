@@ -5,7 +5,7 @@ import datetime
 st.set_page_config(page_title="Ma date dans PI", layout="centered")
 st.title("Votre date de naissance se cache-t-elle dans PI?")
 
-# Lecture des décimales de PI
+# lecture des décimales de PI
 @st.cache_data
 def charger_pi():
     try:
@@ -20,10 +20,10 @@ def charger_pi():
 
 pi_million_digits = charger_pi()
 
-# Saisie de la date
+# saisie de la date
 date_naissance = st.text_input("Entrez votre date de naissance (format JJMMAAAA) :", max_chars=8)
 
-# Vérification
+# vérification
 if date_naissance:
     if not date_naissance.isdigit() or len(date_naissance) != 8:
         st.warning("Veuillez saisir la date au format JJMMAAAA (ex : 01012000).")
@@ -54,7 +54,7 @@ if len(date_naissance) == 8 and date_naissance.isdigit():
     
     
 #******** CONSIGNE 3 *************
-st.subheader("Calculs sur les decimales de PI")
+st.subheader("Calculs sur le premier million de decimales de PI")
 
 pi_digits = charger_pi()
 
@@ -72,6 +72,6 @@ if pi_digits:
     
 #************ CONSIGNE 4 ************
 
-# Intégrer une vidéo
+#intégrer une vidéo
 st.subheader("L'incroyable addition : 1 + 2 + 3 + 4 +... = -1/12")
 st.video("https://www.youtube.com/watch?v=xqTWRtNDO3U")

@@ -1,4 +1,4 @@
-streamlit>=1.35.0  # Évite les erreurs "No module named ('piexif")"lors du déploiement sur Streamlit Cloud
+streamlit>=1.35.0  # évite les erreurs "No module named ('piexif")"lors du déploiement sur Streamlit Cloud
 pillow
 piexif
 folium

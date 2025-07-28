@@ -13,5 +13,5 @@ Modifiez et affichez les métadonnées EXIF (auteur, description, coordonnées G
 ---
 
 ### 🔎 TP4.3 — Recherche dans les décimales de PI  
-Recherchez votre date de naissance dans le million de décimales de PI !
+Recherchez votre date de naissance dans le premier million de décimales de PI !
 """)

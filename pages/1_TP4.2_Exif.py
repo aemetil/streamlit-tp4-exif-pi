@@ -98,7 +98,7 @@ if fichier:
     ]
     
     # centrer la carte sur le premier lieu
-    carte_poi = folium.Map(Location=[lieux[0][1], lieux[0][2]], zoom_start=2)
+    carte_poi = folium.Map(location=[lieux[0][1], lieux[0][2]], zoom_start=2)
     
     # ajout des marqueurs 
     points_ligne = []

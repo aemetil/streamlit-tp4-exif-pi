@@ -1,7 +1,17 @@
+# *******************************************************
+# Nom ......... : 2_TP4.3_PI.py
+# Rôle ........ : Application Streamlit pour explorer dans 
+#                 le premier million de décimales de PI
+# Auteur ...... : Alberto E.
+# Version ..... : V0.1 du 30/05/2025
+# Licence ..... : Réalisé dans le cadre du cours OC
+# Usage ....... : streamlit run 2_TP4.3_PI.py
+# **********************************************************
+
 import streamlit as st
 import datetime
 
-# Titre
+# titre
 st.set_page_config(page_title="Ma date dans PI", layout="centered")
 st.title("Votre date de naissance se cache-t-elle dans PI?")
 
@@ -44,7 +54,7 @@ if len(date_naissance) == 8 and date_naissance.isdigit():
     
     # dico pour la treduction des jours
     jour_fr = {
-        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi", "Tuesday": "Jeudi",
+        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi", "Thursday": "Jeudi",
         "Friday": "Vendredi", "Saturday": "Samedi", "Sunday":"Dimanche"
     }
     

@@ -3,7 +3,7 @@
 # Rôle ........ : Application Streamlit pour éditer les métadonnées EXIF d'une image
 # Auteur ...... : Alberto E.
 # Version ..... : V0.1 du 26/05/2025
-# Licence ..... : Réalisé dans le cadre du cours Outils Collaboratifs (TP4)
+# Licence ..... : Réalisé dans le cadre du cours Outils Collaboratifs
 # Usage ....... : streamlit run 1_TP4.2_Exif.py
 # **********************************************************
 
@@ -14,11 +14,11 @@ import io
 import folium
 from streamlit_folium import st_folium
 
-# Titre de l'application
+# titre de l'application
 st.set_page_config(page_title="Éditeur EXIF", layout="centered")
 st.markdown("### Éditeur de métadonnées EXIF")
 
-#fonction pour convertir des coordonnées décimales en DMS (degrés, minutes, secondes)
+#fonction pour convertir des coordonnées décimales en DMS: degrés, minutes, secondes
 def convertir_en_dms(valeur):
     degres = int(valeur)
     minutes = int((valeur - degres) * 60)
@@ -38,14 +38,14 @@ if fichier:
 
     st.subheader("Champs modifiables")
 
-    # champs modifiables (artiste, description)
+    # champs modifiables : artiste, description
     artiste = exif_dict["0th"].get(piexif.ImageIFD.Artist, b"").decode("utf-8", errors="ignore")
     description = exif_dict["0th"].get(piexif.ImageIFD.ImageDescription, b"").decode("utf-8", errors="ignore")
 
     nouveau_artiste = st.text_input("Auteur de l'image", value=artiste)
     nouvelle_desc = st.text_input("Description de l’image", value=description)
 
-    #saisie des coordonnées GPS (décimales)
+    #saisie des coordonnées GPS
     st.subheader("Coordonnées GPS à insérer")
 
     latitude = st.number_input("Latitude (ex: 48.8566)", format="%.6f", value=48.8566)
